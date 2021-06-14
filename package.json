@@ -1,0 +1,19 @@
+{
+  "name": "twitch-events",
+  "version": "1.0.0",
+  "description": "Endpoints for Twitch events",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OliverForeman/twitch-events.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OliverForeman/twitch-events/issues"
+  },
+  "homepage": "https://github.com/OliverForeman/twitch-events#readme"
+}
