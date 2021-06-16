@@ -29,7 +29,7 @@ AdjustingInterval.prototype.step = function() {
 // Timer stuff - End
 
 // Set up timer for use - Start
-let timeRemaining = 5; // Provide time to count down in seconds
+let timeRemaining = 10800; // Provide time to count down in seconds
 
 const timerOutput = document.getElementById('timer');
 const updateTimeDisplay = () => {
@@ -65,7 +65,12 @@ const stopTimer = () => {
   counter.stop();
 };
 const addFollowTime = () => {
-  timeRemaining += 5;
+  timeRemaining += 300;
+  updateTimeDisplay();
+};
+
+const addSubTime = () => {
+  timeRemaining += 1800;
   updateTimeDisplay();
 };
 // Timer controls for page - End
