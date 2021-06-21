@@ -31,6 +31,10 @@ AdjustingInterval.prototype.step = function() {
 // Set up timer for use - Start
 let timeRemaining = 10800; // Provide time to count down in seconds
 
+localStorage.setItem('subTime', 0);
+localStorage.setItem('followTime', 0);
+localStorage.setItem('timerActive', false);
+
 const timerOutput = document.getElementById('timer');
 const updateTimeDisplay = () => {
   const hours = Math.floor(timeRemaining / (60 * 60));
@@ -58,19 +62,33 @@ const counter = new AdjustingInterval(doWork, 1000, onError);
 // Set up timer for use - End
 
 // Timer controls for page - Start
-const startTimer = () => {
-  counter.start();
+onstorage = e => {
+  switch (e.key) {
+    case 'subTime':
+    case 'followTime':
+      addTime(e.newValue);
+      localStorage.setItem(e.key, 0);
+      break;
+    case 'timerActive':
+      if (e.newValue === 'true') {
+        startTimer();
+      } else {
+        stopTimer();
+      }
+      break;
+  }
 };
-const stopTimer = () => {
-  counter.stop();
-};
-const addFollowTime = () => {
-  timeRemaining += 300;
+
+const addTime = time => {
+  timeRemaining += +time;
   updateTimeDisplay();
 };
 
-const addSubTime = () => {
-  timeRemaining += 1800;
-  updateTimeDisplay();
+const startTimer = () => {
+  counter.start();
+};
+
+const stopTimer = () => {
+  counter.stop();
 };
 // Timer controls for page - End
